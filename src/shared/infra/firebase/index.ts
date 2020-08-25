@@ -1,5 +1,5 @@
-import admin from 'firebase-admin';
 import configKeys from '@config/config_keys';
+import admin from 'firebase-admin';
 
 class CustomFirebaseAdmin {
   firebase: admin.app.App;

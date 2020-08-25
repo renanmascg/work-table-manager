@@ -1,14 +1,12 @@
+import authConfig from '@config/auth';
+import { IToken } from '@modules/sessions/dtos/IToken';
 import { Injectable } from '@nestjs/common';
 import AppError from '@shared/infra/http/error/appError';
-import { IToken } from '@modules/sessions/dtos/IToken';
-import authConfig from '@config/auth';
+import axios from 'axios';
 import * as jwt from 'jsonwebtoken';
-
 // eslint-disable-next-line import/no-extraneous-dependencies
 import qs from 'qs';
-import axios from 'axios';
 import IAuthResponse from '../../dtos/IAuthResponse';
-
 import { IUserInfo } from '../../dtos/IUserInfo';
 
 interface RequestDTO {

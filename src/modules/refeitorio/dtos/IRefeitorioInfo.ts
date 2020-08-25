@@ -1,5 +1,5 @@
 export interface IRefeitorioInfo {
-	mesa: number;
-	andar: number;
-	dataSaidaRefeitorio: Date;
+  mesa: number;
+  andar: number;
+  dataSaidaRefeitorio: Date;
 }

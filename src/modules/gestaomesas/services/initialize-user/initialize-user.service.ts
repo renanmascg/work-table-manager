@@ -1,7 +1,7 @@
-import { Injectable, Inject, OnModuleInit } from '@nestjs/common';
+import { Injectable, OnModuleInit } from '@nestjs/common';
+import { ModuleRef } from '@nestjs/core';
 import { FIREBASE_REPOSITORY_NAME } from '@shared/constants/providers';
 import IFirebaseRepository from '@shared/infra/firebase/repositories/IFirebaseRepository';
-import { ModuleRef } from '@nestjs/core';
 
 interface RequestDTO {
   identificadorGestor: boolean;

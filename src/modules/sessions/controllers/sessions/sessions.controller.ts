@@ -1,5 +1,5 @@
-import { Controller, Post, Get, Req, Res } from '@nestjs/common';
 import { AuthenticateSessionsService } from '@modules/sessions/services/authenticate-sessions/authenticate-sessions.service';
+import { Controller, Get, Post, Req, Res } from '@nestjs/common';
 import { Request, Response } from 'express';
 
 @Controller('sessions')

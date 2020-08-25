@@ -1,7 +1,7 @@
 import CustomFirebaseAdmin from '@shared/infra/firebase';
 import AppError from '@shared/infra/http/error/appError';
-import IFirebaseRepository from './IFirebaseRepository';
 import { IGetDocument } from '../dtos/IGetDocument';
+import IFirebaseRepository from './IFirebaseRepository';
 
 class FirebaseRepository implements IFirebaseRepository {
   firebaseDB: CustomFirebaseAdmin;

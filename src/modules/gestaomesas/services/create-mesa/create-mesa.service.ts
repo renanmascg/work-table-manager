@@ -1,9 +1,9 @@
-import { Injectable, Inject, OnModuleInit } from '@nestjs/common';
+import IMesa from '@modules/gestaomesas/dtos/IMesa';
+import { Injectable, OnModuleInit } from '@nestjs/common';
+import { ModuleRef } from '@nestjs/core';
 import { FIREBASE_REPOSITORY_NAME } from '@shared/constants/providers';
 import IFirebaseRepository from '@shared/infra/firebase/repositories/IFirebaseRepository';
 import AppError from '@shared/infra/http/error/appError';
-import IMesa from '@modules/gestaomesas/dtos/IMesa';
-import { ModuleRef } from '@nestjs/core';
 
 interface RequestDTO {
   mesa: number;

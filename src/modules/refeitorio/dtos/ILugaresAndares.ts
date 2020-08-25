@@ -1,11 +1,11 @@
 export interface ILugaresAndares {
-	mesas: IMesa[];
+  mesas: IMesa[];
 }
 
 export interface IMesa {
-	agendamentos: [];
-	mesa: number | string;
-	andar: number | string;
-	status: string;
-	usuarioId: string;
+  agendamentos: [];
+  mesa: number | string;
+  andar: number | string;
+  status: string;
+  usuarioId: string;
 }

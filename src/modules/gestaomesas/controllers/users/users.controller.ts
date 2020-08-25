@@ -1,5 +1,5 @@
-import { Controller, Post } from '@nestjs/common';
 import { InitializeUserService } from '@modules/gestaomesas/services/initialize-user/initialize-user.service';
+import { Controller, Post } from '@nestjs/common';
 import { Request, Response } from 'express';
 
 @Controller('gestaomesas')
