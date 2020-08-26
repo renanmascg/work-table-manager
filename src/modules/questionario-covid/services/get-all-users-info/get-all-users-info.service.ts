@@ -1,3 +1,4 @@
+import IUserObject from '@modules/questionario-covid/dtos/IUserObject';
 import UserModel from '@modules/questionario-covid/infra/typeorm/entities/UserModel';
 import UsersRepository from '@modules/questionario-covid/repositories/UserRepository';
 import { Injectable } from '@nestjs/common';
@@ -9,7 +10,7 @@ interface IAllUsersResponse {
   numberLightSymptoms: number;
   numberSeriousSymptoms: number;
   totalNumber: number;
-  usersWithCovidSuspect: UserModel[];
+  usersWithCovidSuspect: IUserObject[];
 }
 
 @Injectable()
@@ -31,12 +32,14 @@ export class GetAllUsersInfoService {
         totalNumber,
       ] = await this.getParsedUsersFromDay(data);
 
+      const treatedUsers = this.generateListOfUsers(usersWithCovidSuspect);
+
       return {
         numberNoSymptoms,
         numberLightSymptoms,
         numberSeriousSymptoms,
         totalNumber,
-        usersWithCovidSuspect,
+        usersWithCovidSuspect: treatedUsers,
       };
     } catch (e) {
       console.error(e);
@@ -63,14 +66,9 @@ export class GetAllUsersInfoService {
     let numberSeriousSymptoms = 0;
 
     for (let i = 0; i < usersFromDay.length; i++) {
-      if (
-        usersFromDay[i].userSymptoms ===
-        covidConstants.SYMPTOMS_STATUS_NO_SYMPTOM
-      ) {
+      if (usersFromDay[i].userSymptoms === 0) {
         numberNoSymptoms += 1;
-      } else if (
-        usersFromDay[i].userSymptoms === covidConstants.SYMPTOMS_STATUS_LIGHT
-      ) {
+      } else if (usersFromDay[i].userSymptoms === 1) {
         numberLightSymptoms += 1;
       } else {
         numberSeriousSymptoms += 1;
@@ -83,5 +81,21 @@ export class GetAllUsersInfoService {
       numberSeriousSymptoms,
       totalNumber,
     ];
+  }
+
+  private generateListOfUsers(listUsers: UserModel[]): IUserObject[] {
+    return listUsers.map(user => {
+      return {
+        alreadyAnswer: true,
+        covidSuspect: user.covidSuspect,
+        email: user.email,
+        name: user.name,
+        userId: user.userId,
+        userStatus: user.userStatus,
+        userSymptoms: covidConstants.SYMPTOMS_STATUS[user.userSymptoms],
+        created_at: user.created_at,
+        updated_at: user.updated_at,
+      };
+    });
   }
 }

@@ -28,8 +28,8 @@ class UserModel {
   @Column({ default: 'Sem Acompanhamento' })
   userStatus: string;
 
-  @Column({ default: 'SEM_SINTOMAS' })
-  userSymptoms: string;
+  @Column('int', { default: 'SEM_SINTOMAS' })
+  userSymptoms: number;
 
   @Column('bit', { default: false })
   showDashboard: boolean;

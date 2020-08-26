@@ -2,6 +2,7 @@ import IUserObject from '@modules/questionario-covid/dtos/IUserObject';
 import UsersRepository from '@modules/questionario-covid/repositories/UserRepository';
 import UsersPermissionRepository from '@modules/questionario-covid/repositories/UsersPermissionRepository';
 import { Injectable } from '@nestjs/common';
+import covidConstants from '@shared/constants/questionario_covid';
 import AppError from '@shared/infra/http/error/appError';
 import moment from 'moment';
 
@@ -55,7 +56,7 @@ export class GetUserHealthDataService {
         name: user.name,
         email: user.email,
         userStatus: user.userStatus,
-        userSymptoms: user.userSymptoms,
+        userSymptoms: covidConstants.SYMPTOMS_STATUS[user.userSymptoms],
         covidSuspect: user.covidSuspect,
         allowUseBooking: user.allowUseBooking,
         alreadyAnswer,

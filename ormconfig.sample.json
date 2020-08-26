@@ -2,7 +2,16 @@
 	"type": "mssql",
 	"host": "localhost",
 	"port": 1433,
-	"username": "sa",
+	"username": "teste",
 	"password": "teste",
-	"database": "teste"
+	"database": "master",
+	"entities": [
+		"./src/modules/questionario-covid/infra/typeorm/entities/*.ts"
+	],
+	"migrations": [
+		"./src/shared/infra/typeorm/migrations/*.ts"
+	],
+	"cli": {
+		"migrationsDir": "./src/shared/infra/typeorm/migrations"
+	}
 }

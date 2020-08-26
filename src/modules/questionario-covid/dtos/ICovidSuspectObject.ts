@@ -7,7 +7,7 @@ export interface ICovidSuspect {
 
 export interface ICovidSuspectResponse {
   covidSuspect: boolean;
-  userSymptoms: string;
+  userSymptoms: number;
   userStatus: string;
   showDashboard: boolean;
 }

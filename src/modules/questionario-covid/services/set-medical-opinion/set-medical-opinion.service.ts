@@ -43,7 +43,7 @@ export class SetMedicalOpinionService {
         { userId: question.userId },
         {
           userStatus,
-          userSymptoms: covidConstants.SYMPTOMS_STATUS_NO_SYMPTOM,
+          userSymptoms: 0,
           covidSuspect: false,
           showDashboard: true,
         },
@@ -83,7 +83,7 @@ export class SetMedicalOpinionService {
         covidSuspect: user.covidSuspect,
         email: user.email,
         userStatus: user.userStatus,
-        userSymptoms: user.userSymptoms,
+        userSymptoms: covidConstants.SYMPTOMS_STATUS[user.userSymptoms],
         allowUseBooking: user.allowUseBooking,
       };
     } catch (error) {

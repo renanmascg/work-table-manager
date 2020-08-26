@@ -33,7 +33,7 @@ export class UserFullInfoService {
       name: user.name,
       userId: user.userId,
       userStatus: user.userStatus,
-      userSymptoms: user.userSymptoms,
+      userSymptoms: covidConstants.SYMPTOMS_STATUS[user.userSymptoms],
       created_at: user.created_at,
       updated_at: user.updated_at,
     };
@@ -71,8 +71,7 @@ export class UserFullInfoService {
   ): IQuestionAndMedicalHistory {
     try {
       const questionsHardSymptoms = user.questions.filter(
-        quest =>
-          quest.userSymptomStatus === covidConstants.SYMPTOMS_STATUS_HARD,
+        quest => quest.userSymptomStatus === 2,
       );
 
       const lastQuestionId = questionsHardSymptoms[0].id;

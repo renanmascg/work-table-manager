@@ -29,8 +29,8 @@ class UserQuestionModel {
   @Column('bit', { default: false })
   userFeelingGood: boolean;
 
-  @Column()
-  userSymptomStatus: string;
+  @Column('int')
+  userSymptomStatus: number;
 
   @Column()
   questions: string;

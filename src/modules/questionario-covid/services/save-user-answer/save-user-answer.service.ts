@@ -78,7 +78,8 @@ export class SaveUserAnswerService {
         name: user.name,
         email: user.email,
         userStatus: covidSuspectData.userStatus,
-        userSymptoms: covidSuspectData.userSymptoms,
+        userSymptoms:
+          covidConstants.SYMPTOMS_STATUS[covidSuspectData.userSymptoms],
         covidSuspect: covidSuspectData.covidSuspect,
         alreadyAnswer: true,
       };
@@ -94,7 +95,7 @@ export class SaveUserAnswerService {
   }: ICovidSuspect): ICovidSuspectResponse {
     let symptoms = 0;
     let covidSuspect = false;
-    let userSymptoms = covidConstants.SYMPTOMS_STATUS_NO_SYMPTOM;
+    let userSymptoms = 0;
     let userStatus = covidConstants.COLAB_STATUS_NO_ACOMPANHAMENTO;
     let { showDashboard } = user;
 
@@ -112,11 +113,11 @@ export class SaveUserAnswerService {
     if (symptoms >= 2) covidSuspect = true;
 
     if (covidSuspect) {
-      userSymptoms = covidConstants.SYMPTOMS_STATUS_HARD;
+      userSymptoms = 2;
       userStatus = covidConstants.COLAB_STATUS_AGUARDANDO_ACOMPANHAMENTO;
       showDashboard = true;
     } else if (symptoms > 0) {
-      userSymptoms = covidConstants.SYMPTOMS_STATUS_LIGHT;
+      userSymptoms = 1;
     }
 
     return { covidSuspect, userSymptoms, userStatus, showDashboard };
