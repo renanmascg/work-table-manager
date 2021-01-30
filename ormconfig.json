@@ -2,8 +2,8 @@
 	"type": "mssql",
 	"host": "localhost",
 	"port": 1433,
-	"username": "sa",
-	"password": "Cinemark12",
+	"username": "YOUR USERNAME",
+	"password": "YOUR PASSWORD",
 	"database": "master",
 	"entities": [
 		"./src/modules/**/infra/typeorm/entities/*.ts"

@@ -1,7 +1,7 @@
 /* secrets no cofre de senhas */
 export default {
   expiresIn: '1d',
-  secret: 'BV LAB BANCO VOTORANTIM 2020',
+  secret: 'ALGUM SECRET MALUCO',
   client_id_uat: '*****',
   client_secret_uat: '*****',
   client_id_prod: '*****',
