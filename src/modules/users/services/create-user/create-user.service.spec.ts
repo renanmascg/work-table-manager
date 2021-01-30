@@ -1,15 +1,15 @@
-import { CheckoutService } from '@modules/gestaomesas/services/checkout/checkout.service';
 import { Test, TestingModule } from '@nestjs/testing';
+import { CreateUserService } from './create-user.service';
 
-describe('CheckoutService', () => {
-  let service: CheckoutService;
+describe('CreateUserService', () => {
+  let service: CreateUserService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [CheckoutService],
+      providers: [CreateUserService],
     }).compile();
 
-    service = module.get<CheckoutService>(CheckoutService);
+    service = module.get<CreateUserService>(CreateUserService);
   });
 
   it('should be defined', () => {

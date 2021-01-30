@@ -29,14 +29,14 @@ export class SaveUserAnswerService {
     userFeelingGood,
     questions,
   }: RequestDTO): Promise<IUserObject> {
-    if (!userId || !userFeelingGood || !questions) {
+    if (!userId || userFeelingGood === undefined || !questions) {
       throw new AppError('Params missing');
     }
 
     const user = await this.usersRepository.findOne({ userId });
 
     if (!user) {
-      throw new AppError('User do not exists');
+      throw new AppError('User does not exists');
     }
 
     try {

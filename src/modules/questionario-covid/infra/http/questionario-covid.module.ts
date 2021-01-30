@@ -6,7 +6,7 @@ import {
   MiddlewareConsumer,
   Module,
   NestModule,
-  RequestMethod,
+  RequestMethod
 } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import ensureAuthenticated from '@shared/infra/http/middlewares/ensureAuthenticated.middleware';

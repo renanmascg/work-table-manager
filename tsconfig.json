@@ -31,5 +31,5 @@
   },
   "include": [
     "src/**/*.ts"
-  ]
+, "src/modules/users/infra/http/controllers/users"  ]
 }

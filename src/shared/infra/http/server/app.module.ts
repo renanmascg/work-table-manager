@@ -1,7 +1,7 @@
 import { GestaomesasModule } from '@modules/gestaomesas/gestaomesas.module';
 import { QuestionarioCovidModule } from '@modules/questionario-covid/infra/http/questionario-covid.module';
 import { RefeitorioModule } from '@modules/refeitorio/refeitorio.module';
-import { SessionsModule } from '@modules/sessions/sessions.module';
+import UsersModule from '@modules/users/users.module';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { FIREBASE_REPOSITORY_NAME } from '@shared/constants/providers';
@@ -10,9 +10,9 @@ import FirebaseRepository from '@shared/infra/firebase/repositories/FirebaseRepo
 @Module({
   imports: [
     GestaomesasModule,
-    SessionsModule,
     RefeitorioModule,
     QuestionarioCovidModule,
+    UsersModule,
     TypeOrmModule.forRoot(),
   ],
   providers: [
